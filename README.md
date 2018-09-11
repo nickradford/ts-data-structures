@@ -1,7 +1,7 @@
 # ts-data-structures
 
 [![Build Status](https://travis-ci.com/nickradford/ts-data-structures.svg?branch=master)](https://travis-ci.com/nickradford/ts-data-structures)
-[![Coverage Status](https://coveralls.io/repos/github/nickradford/ts-data-structures/badge.svg?branch=master)](https://coveralls.io/github/nickradford/ts-data-structures?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/nickradford/ts-data-structures/badge.svg?branch=master)](https://coveralls.io/github/nickradford/ts-data-structures?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/nickradford/ts-data-structures.svg)](https://greenkeeper.io/)
 
 `ts-data-structures` is a TypeScript library which implements some common data structures. This is a personal effort to learn TypeScript and apply it in a library format. If you use it, let me know, and please report any issues you run into!
 
