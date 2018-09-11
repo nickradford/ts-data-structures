@@ -19,6 +19,10 @@ import { BinaryTree } from '@nickradford/ts-data-structures'
 const Tree: BinaryTree<int> = new BinaryTree<int>()
 ```
 
+## License
+
+[MIT](LICENSE)
+
 ## Special Thanks
 
 Thanks to the **Awesome** [typescript-library-starter](https://github.com/alexjoverm/typescript-library-starter) by @alexjoverm with commits by many others.
