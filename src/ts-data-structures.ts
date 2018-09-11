@@ -1,10 +1,15 @@
 import { Stack } from './stack'
 import { BinaryTree, BinaryTreeNode } from './binaryTree'
+import { Queue } from './queue'
+import { LinkedList, LinkedListNode } from './linkedList'
 
 const TSDataStructures = {
   BinaryTree,
   BinaryTreeNode,
-  Stack
+  LinkedList,
+  LinkedListNode,
+  Stack,
+  Queue
 }
 
 export default TSDataStructures

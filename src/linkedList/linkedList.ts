@@ -39,19 +39,17 @@ class LinkedList<T> {
   public find(
     valueOrPredicateFn: T | PredicateFunction
   ): LinkedListNode<T> | boolean {
-    let value: T
+    let value = valueOrPredicateFn as T
     let fn: PredicateFunction | undefined
 
     /* istanbul ignore else */
-    if (typeof valueOrPredicateFn == 'function') {
+    if (typeof valueOrPredicateFn === 'function') {
       fn = valueOrPredicateFn
-    } else if ((value = <T>valueOrPredicateFn)) {
-      fn = (n: LinkedListNode<T>) => n.value == value
+    } else if (value) {
+      fn = (n: LinkedListNode<T>) => n.value === value
     } else {
       throw Error(`LinkedList.find - invalid parameter (${valueOrPredicateFn})`)
     }
-
-    fn = fn as PredicateFunction
 
     let node = this.firstNode
 
@@ -70,7 +68,7 @@ class LinkedList<T> {
   public forEach(fn: Function) {
     let node = this.firstNode
     while (node) {
-      if (fn(node) == false) {
+      if (fn(node) === false) {
         return
       }
       node = node.next

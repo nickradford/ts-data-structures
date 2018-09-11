@@ -2,16 +2,15 @@ import { BinaryTreeNode } from './node'
 
 export class BinaryTree<T> {
   root: BinaryTreeNode<T> | null = null
-  constructor() {}
 
   public add(value: T) {
     let node: BinaryTreeNode<T> | undefined
 
     // Coerce the input to be a BinaryTreeNode of the correct type.
-    if (value as T) {
-      node = new BinaryTreeNode(value) as BinaryTreeNode<T>
+    if (value) {
+      node = new BinaryTreeNode(value)
 
-      if (this.root == null) {
+      if (this.root === null) {
         this.root = node
       } else {
         this.root.add(node)

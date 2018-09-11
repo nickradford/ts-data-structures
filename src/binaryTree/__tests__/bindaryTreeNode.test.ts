@@ -21,7 +21,7 @@ describe('BinaryTreeNode', () => {
       node.add(getInstance(5))
 
       expect(node.left).toBeDefined()
-      expect(node.left.value).toEqual(5)
+      expect((node.left as BinaryTreeNode<number>).value).toEqual(5)
     })
 
     test('recursively adds down the left', () => {
@@ -29,16 +29,20 @@ describe('BinaryTreeNode', () => {
       node.add(getInstance(5))
       node.add(getInstance(2))
 
-      expect(node.left.left).toBeDefined()
-      expect(node.left.left.value).toEqual(2)
+      const leftNode = node.left as BinaryTreeNode<number>
+
+      expect(leftNode.left).toBeDefined()
+      expect((leftNode.left as BinaryTreeNode<number>).value).toEqual(2)
     })
 
     test('adds a value to the right', () => {
       const node = getInstance(10)
       node.add(getInstance(15))
 
-      expect(node.right).toBeDefined()
-      expect(node.right.value).toEqual(15)
+      const rightNode = node.right as BinaryTreeNode<number>
+
+      expect(rightNode).toBeDefined()
+      expect(rightNode.value).toEqual(15)
     })
 
     test('recursively adds down the right', () => {
@@ -46,8 +50,11 @@ describe('BinaryTreeNode', () => {
       node.add(getInstance(15))
       node.add(getInstance(22))
 
-      expect(node.right.right).toBeDefined()
-      expect(node.right.right.value).toEqual(22)
+      const rightNode = node.right as BinaryTreeNode<number>
+      const rightRightNode = rightNode.right as BinaryTreeNode<number>
+
+      expect(rightNode).toBeDefined()
+      expect(rightRightNode.value).toEqual(22)
     })
 
     test('throws if you add the same value to a node', () => {
@@ -59,21 +66,27 @@ describe('BinaryTreeNode', () => {
   })
 
   describe('.find', () => {
-    let node
+    let node: BinaryTreeNode<any>
+    let leftNode: BinaryTreeNode<any>
+    let rightNode: BinaryTreeNode<any>
+
     beforeEach(() => {
       node = getInstance(10)
       node.add(getInstance(5))
       node.add(getInstance(15))
-      node.left.find = jest.fn()
-      node.right.find = jest.fn()
+      leftNode = node.left as BinaryTreeNode<number>
+      rightNode = node.right as BinaryTreeNode<number>
+
+      leftNode.find = jest.fn()
+      rightNode.find = jest.fn()
     })
 
     test('call recursively down the left', () => {
       node.find(1)
       node.find(20)
 
-      expect(node.left.find).toHaveBeenCalledWith(1)
-      expect(node.right.find).toHaveBeenCalledWith(20)
+      expect(leftNode.find).toHaveBeenCalledWith(1)
+      expect(rightNode.find).toHaveBeenCalledWith(20)
     })
   })
 
@@ -82,14 +95,16 @@ describe('BinaryTreeNode', () => {
       const node = getInstance(2)
       node.add(getInstance(1))
       node.add(getInstance(3))
+      const leftNode = node.left as BinaryTreeNode<number>
+      const rightNode = node.right as BinaryTreeNode<number>
 
-      node.left.map = jest.fn()
-      node.right.map = jest.fn()
+      leftNode.map = jest.fn()
+      rightNode.map = jest.fn()
 
-      node.map(() => {})
+      node.map(() => undefined)
 
-      expect(node.left.map).toHaveBeenCalled()
-      expect(node.right.map).toHaveBeenCalled()
+      expect(leftNode.map).toHaveBeenCalled()
+      expect(rightNode.map).toHaveBeenCalled()
     })
   })
 
@@ -99,7 +114,9 @@ describe('BinaryTreeNode', () => {
     } = {}
 
     beforeEach(() => {
-      spy.console = jest.spyOn(console, 'log').mockImplementation(() => {})
+      spy.console = jest
+        .spyOn(console, 'log')
+        .mockImplementation(() => undefined)
     })
 
     afterEach(() => {

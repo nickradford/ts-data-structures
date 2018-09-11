@@ -39,33 +39,33 @@ describe('LinkedList', () => {
   describe('.find', () => {
     test('returns the object if found', () => {
       const instance = getInstance([1, 2, 3, 4])
-      let found = instance.find(3)
+      let found = instance.find(3) as LinkedListNode<number>
 
-      if ((found = found as LinkedListNode<number>) !== null) {
+      if (found) {
         expect(found.value).toEqual(3)
         return
       } else {
-        throw 'Casting failed'
+        throw Error('Casting failed')
       }
     })
 
     test('returns false if not found', () => {
       const instance = getInstance([1, 2, 3, 4])
-      let found = instance.find(30)
+      let found = instance.find(30) as boolean
 
-      if ((found = found as boolean) !== null) {
+      if (found === false) {
         expect(found).toEqual(false)
         return
       } else {
-        throw 'Casting failed'
+        throw Error('Casting failed')
       }
     })
 
     test('finds with a predicate function', () => {
       const instance = getInstance([1, 2, 3, 4])
-      let found = instance.find(n => n.value == 3)
+      let found = instance.find(n => n.value === 3) as LinkedListNode<number>
 
-      if ((found = found as LinkedListNode<number>)) {
+      if (found) {
         expect(found.value).toEqual(3)
       }
     })

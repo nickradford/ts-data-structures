@@ -33,7 +33,7 @@ export class BinaryTreeNode<T> {
   }
 
   public find(value: T): BinaryTreeNode<T> | null {
-    if (this.value == value) {
+    if (this.value === value) {
       return this
     } else if (value < this.value && this.left) {
       return this.left.find(value)
