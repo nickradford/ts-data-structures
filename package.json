@@ -12,7 +12,7 @@
   "author": "Nick Radford <nick@nicholasradford.com>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/nickradford/ts-data-structures"
   },
   "license": "MIT",
   "engines": {
