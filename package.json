@@ -33,6 +33,9 @@
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "lint-staged": {
     "{src,test}/**/*.ts": [
       "prettier --write",
