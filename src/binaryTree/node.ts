@@ -24,7 +24,7 @@ export class BinaryTreeNode<T> {
       this.right = node
     } else {
       throw Error(
-        `BinaryTreeNode<${this.type}> Error: Value(${
+        `BinaryTreeNode<${this.type}>.add Error: Value(${
           node.value
         }) already exists in BinaryTree.`
       )
