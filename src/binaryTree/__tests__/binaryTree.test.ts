@@ -25,7 +25,7 @@ describe('BinaryTree', () => {
       expect(() => {
         tree.add(value)
       }).toThrowError(
-        `BinaryTreeNode<number> Error: Value(${value}) already exists in BinaryTree.`
+        `BinaryTreeNode<number>.add Error: Value(${value}) already exists in BinaryTree.`
       )
     })
   })
