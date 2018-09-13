@@ -1,15 +1,4 @@
-import { Stack } from './stack'
-import { BinaryTree, BinaryTreeNode } from './binaryTree'
-import { Queue } from './queue'
-import { LinkedList, LinkedListNode } from './linkedList'
-
-const TSDataStructures = {
-  BinaryTree,
-  BinaryTreeNode,
-  LinkedList,
-  LinkedListNode,
-  Stack,
-  Queue
-}
-
-export { TSDataStructures }
+export { Stack } from './stack'
+export { BinaryTree, BinaryTreeNode } from './binaryTree'
+export { Queue } from './queue'
+export { LinkedList, LinkedListNode } from './linkedList'

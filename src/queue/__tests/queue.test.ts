@@ -1,4 +1,5 @@
 import { Queue } from '../index'
+import { Queue as MQueue } from '../../ts-data-structures'
 
 /** @ignore */
 function getInstance<T>(initialValue?: Array<T>): Queue<T> {
@@ -9,6 +10,13 @@ function getInstance<T>(initialValue?: Array<T>): Queue<T> {
 }
 
 describe('Queue', () => {
+  describe('module', () => {
+    test('exports', () => {
+      expect(MQueue).toBeDefined()
+      expect(MQueue).toBe(Queue)
+    })
+  })
+
   describe('constructor', () => {
     test('default', () => {
       const instance = getInstance()

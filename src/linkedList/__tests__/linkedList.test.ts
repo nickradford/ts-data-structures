@@ -1,12 +1,26 @@
 import { LinkedList } from '../'
 import { LinkedListNode } from '../node'
 
+import {
+  LinkedList as MLinkedList,
+  LinkedListNode as MLinkedListNode
+} from '../../ts-data-structures'
+
 /** @ignore */
 function getInstance<T>(elements?: Array<T>): LinkedList<T> {
   return new LinkedList(elements)
 }
 
 describe('LinkedList', () => {
+  describe('module', () => {
+    test('exports', () => {
+      expect(MLinkedList).toBeDefined()
+      expect(MLinkedListNode).toBeDefined()
+      expect(MLinkedList).toBe(LinkedList)
+      expect(MLinkedListNode).toBe(LinkedListNode)
+    })
+  })
+
   describe('constructor', () => {
     test('returns an empty list', () => {
       const instance = getInstance()

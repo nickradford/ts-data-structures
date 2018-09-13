@@ -1,4 +1,5 @@
 import { Stack } from '../'
+import { Stack as MStack } from '../../ts-data-structures'
 
 /** @ignore */
 function getInstance<T>(initialValue?: Array<T>): Stack<T> {
@@ -9,6 +10,13 @@ function getInstance<T>(initialValue?: Array<T>): Stack<T> {
 }
 
 describe('Stack', () => {
+  describe('module', () => {
+    test('exports', () => {
+      expect(MStack).toBeDefined()
+      expect(MStack).toBe(Stack)
+    })
+  })
+
   describe('constructor', () => {
     test('default', () => {
       const instance = getInstance()

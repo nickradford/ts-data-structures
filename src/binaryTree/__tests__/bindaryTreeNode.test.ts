@@ -1,4 +1,5 @@
 import { BinaryTreeNode } from '../node'
+import { BinaryTreeNode as MBinaryTreeNode } from '../../ts-data-structures'
 
 /** @ignore */
 function getInstance<T>(val: T): BinaryTreeNode<T> {
@@ -6,6 +7,11 @@ function getInstance<T>(val: T): BinaryTreeNode<T> {
 }
 
 describe('BinaryTreeNode', () => {
+  test('export', () => {
+    expect(MBinaryTreeNode).toBeDefined()
+    expect(MBinaryTreeNode).toBe(BinaryTreeNode)
+  })
+
   describe('constructor', () => {
     test('create the node', () => {
       const node = getInstance(1)

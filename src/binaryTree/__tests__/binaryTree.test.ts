@@ -1,10 +1,15 @@
 import { BinaryTree, BinaryTreeNode } from '../'
+import { BinaryTree as MBinaryTree } from '../../ts-data-structures'
 
 function getInstance<T>(): BinaryTree<T> {
   return new BinaryTree<T>()
 }
 
 describe('BinaryTree', () => {
+  test('exports', () => {
+    expect(MBinaryTree).toBeDefined()
+    expect(MBinaryTree).toBe(BinaryTree)
+  })
   test('instantiates', () => {
     const tree = getInstance()
 
