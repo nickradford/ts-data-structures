@@ -12,4 +12,4 @@ const TSDataStructures = {
   Queue
 }
 
-export default TSDataStructures
+export { TSDataStructures }
