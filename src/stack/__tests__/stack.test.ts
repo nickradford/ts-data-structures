@@ -94,6 +94,18 @@ describe('Stack', () => {
     })
   })
 
+  describe('.contains', () => {
+    test('returns true when the stack contains the item', () => {
+      const instance = getInstance([1, 2, 3])
+      expect(instance.contains(1)).toEqual(true)
+    })
+
+    test("returns false when the stack doesn't contain the item", () => {
+      const instance = getInstance(['a', 'b', 'c'])
+      expect(instance.contains('x')).toEqual(false)
+    })
+  })
+
   describe('static methods', () => {
     describe('.From', () => {
       test('has a static From method', () => {
