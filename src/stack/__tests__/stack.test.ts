@@ -106,6 +106,19 @@ describe('Stack', () => {
     })
   })
 
+  describe('[Symbol.iterator]', () => {
+    test('can iterate over the stack', () => {
+      const instance = getInstance([1, 2, 3])
+      let accumulator = 0
+
+      for (const value of instance) {
+        accumulator += value || 0
+      }
+
+      expect(accumulator).toEqual(6)
+    })
+  })
+
   describe('static methods', () => {
     describe('.From', () => {
       test('has a static From method', () => {
