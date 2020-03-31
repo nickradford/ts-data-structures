@@ -41,7 +41,15 @@ workflows:
   test_and_release:
     jobs:
       - install_deps
+          filters:
+            branches:
+              ignore:
+                - gh-pages
       - test:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
           requires:
             - install_deps
       - release:
