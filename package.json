@@ -1,7 +1,7 @@
 {
   "name": "@nickradford/ts-data-structures",
   "version": "0.0.0-development",
-  "description": "",
+  "description": "A data structure library built using TypeScript.",
   "keywords": [],
   "main": "dist/ts-data-structures.umd.js",
   "module": "dist/ts-data-structures.es5.js",

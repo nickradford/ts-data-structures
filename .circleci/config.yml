@@ -1,23 +1,37 @@
 version: 2.1
 
+orbs:
+  coveralls: coveralls/coveralls@1.0.4
+
 jobs:
-  test:
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - checkout
-      - run:
-          name: install deps
-          command: npm install
-      - run:
-          name: test
-          command: npm test
-  release:
+  install_deps:
     docker:
       - image: circleci/node:latest
     steps:
       - checkout
       - run: npm install
+      - persist_to_workspace:
+          root: /home/circleci/project
+          paths:
+            - node_modules/*
+  test:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - attach_workspace:
+          at: /home/circleci/project
+      - run:
+          name: test
+          command: npm test
+      - coveralls/upload
+  release:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - attach_workspace:
+          at: /home/circleci/project
       - run: npm run build
       - run: npm run semantic-release || true
 
@@ -25,10 +39,14 @@ workflows:
   version: 2
   test_and_release:
     jobs:
-      - test
+      - install_deps
+      - test:
+          requires:
+            - install_deps
       - release:
           filters:
             branches:
               only: master
           requires:
+            - install_deps
             - test
