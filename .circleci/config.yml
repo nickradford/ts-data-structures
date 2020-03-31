@@ -48,5 +48,4 @@ workflows:
             branches:
               only: master
           requires:
-            - install_deps
             - test
