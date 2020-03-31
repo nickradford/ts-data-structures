@@ -1,6 +1,6 @@
 {
   "name": "@nickradford/ts-data-structures",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "description": "",
   "keywords": [],
   "main": "dist/ts-data-structures.umd.js",
@@ -110,7 +110,7 @@
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript2": "^0.27.0",
-    "semantic-release": "^15.0.0",
+    "semantic-release": "^17.0.4",
     "ts-jest": "^25.3.0",
     "ts-node": "^8.8.1",
     "tslint": "^6.1.0",
