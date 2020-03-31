@@ -6,6 +6,9 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
+      - install:
+          name: install deps
+          command: npm i
       - run:
           name: test
           command: npm test
