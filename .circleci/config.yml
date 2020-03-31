@@ -6,6 +6,6 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
-      - ? run
+      - run
         name: test
         command: npm test
