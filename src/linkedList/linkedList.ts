@@ -44,7 +44,7 @@ class LinkedList<T> {
 
     /* istanbul ignore else */
     if (typeof valueOrPredicateFn === 'function') {
-      fn = valueOrPredicateFn
+      fn = valueOrPredicateFn as PredicateFunction
     } else if (value) {
       fn = (n: LinkedListNode<T>) => n.value === value
     } else {
