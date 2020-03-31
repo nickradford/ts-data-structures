@@ -13,9 +13,6 @@ jobs:
           name: test
           command: npm test
   release:
-    branches:
-      only:
-        - master
     docker:
       - image: circleci/node:latest
     steps:
@@ -30,5 +27,8 @@ workflows:
     jobs:
       - test
       - release:
+          filters:
+            branches:
+              only: master
           requires:
             - test
