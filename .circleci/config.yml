@@ -1,14 +1,22 @@
 version: 2.1
 
 jobs:
+  install_deps:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - persist_to_workspace:
+          root: /tmp/project
+          paths:
+            - node_modules/*
   test:
     docker:
       - image: circleci/node:latest
     steps:
       - checkout
-      - run:
-          name: install deps
-          command: npm install
+      - attach_workspace:
+          at: /tmp/project
       - run:
           name: test
           command: npm test
@@ -17,7 +25,8 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
-      - run: npm install
+      - attach_workspace:
+          at: /tmp/project
       - run: npm run build
       - run: npm run semantic-release || true
 
