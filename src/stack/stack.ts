@@ -1,4 +1,4 @@
-class Stack<T> {
+class Stack<T> implements Iterable<T> {
   private stack: Array<T>
 
   constructor(_stack?: Array<T>) {
@@ -9,7 +9,7 @@ class Stack<T> {
     }
   }
 
-  public static From<T>(values: Array<T>) {
+  static From<T>(values: Array<T>) {
     const stack = new Stack(values)
     return stack
   }
@@ -18,26 +18,47 @@ class Stack<T> {
     return this.stack.length
   }
 
-  public push(item: T) {
+  push(item: T) {
     this.stack.push(item)
   }
 
-  public pop(): T {
+  pop(): T {
     return this.stack.pop() as T
   }
 
-  public peek(): T | null {
+  peek(): T | null {
     if (this.stack.length === 0) {
       return null
     }
     return this.stack[this.stack.length - 1]
   }
 
-  public contains(value: T): boolean {
+  contains(value: T): boolean {
     if (this.stack.includes(value)) {
       return true
     }
     return false
+  }
+
+  [Symbol.iterator](): Iterator<T, undefined> {
+    let index = 0
+    const self = this
+
+    return {
+      next() {
+        if (index <= self.length) {
+          return {
+            value: self.stack[index++],
+            done: false
+          }
+        } else {
+          return {
+            value: undefined,
+            done: true
+          }
+        }
+      }
+    }
   }
 }
 
