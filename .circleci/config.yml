@@ -40,7 +40,7 @@ workflows:
   version: 2
   test_and_release:
     jobs:
-      - install_deps
+      - install_deps:
           filters:
             branches:
               ignore:

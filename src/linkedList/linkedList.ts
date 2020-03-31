@@ -1,7 +1,7 @@
 import { LinkedListNode } from './node'
 
 type PredicateFunction = (node: LinkedListNode<any>) => boolean
-type MapFunction = (node: LinkedListNode<any>) => any
+type MapFunction<T> = (node: LinkedListNode<T>) => any
 
 class LinkedList<T> {
   private _size: number = 0
@@ -78,7 +78,7 @@ class LinkedList<T> {
    * @param {MapFunction} fn - The function to perform on each item.
    * @returns {Array} The values returned from the MapFunction
    */
-  public map(fn: MapFunction): Array<any> {
+  public map(fn: MapFunction<T>): Array<any> {
     let node = this.firstNode
     let accumulator = []
     while (node) {
