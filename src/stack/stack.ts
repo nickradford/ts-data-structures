@@ -32,6 +32,13 @@ class Stack<T> {
     }
     return this.stack[this.stack.length - 1]
   }
+
+  public contains(value: T): boolean {
+    if (this.stack.includes(value)) {
+      return true
+    }
+    return false
+  }
 }
 
 export { Stack }
