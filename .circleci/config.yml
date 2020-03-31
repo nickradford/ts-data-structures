@@ -34,6 +34,7 @@ jobs:
           at: /home/circleci/project
       - run: npm run build
       - run: npm run semantic-release || true
+      - run: npm run deploy-docs
 
 workflows:
   version: 2
