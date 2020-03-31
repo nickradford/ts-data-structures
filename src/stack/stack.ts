@@ -9,7 +9,12 @@ class Stack<T> {
     }
   }
 
-  public length(): number {
+  public static From<T>(values: Array<T>) {
+    const stack = new Stack(values)
+    return stack
+  }
+
+  get length(): number {
     return this.stack.length
   }
 
