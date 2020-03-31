@@ -26,7 +26,7 @@ describe('Stack', () => {
 
     test('with values', () => {
       const instance = getInstance([1, 2, 3])
-      expect(instance.length()).toEqual(3)
+      expect(instance.length).toEqual(3)
     })
   })
 
@@ -35,7 +35,7 @@ describe('Stack', () => {
       const instance = getInstance<number>()
       instance.push(1)
 
-      expect(instance.length()).toEqual(1)
+      expect(instance.length).toEqual(1)
     })
 
     test('adds items in the correct order', () => {
@@ -60,7 +60,7 @@ describe('Stack', () => {
       const instance = getInstance([1])
       const item = instance.pop()
 
-      expect(instance.length()).toEqual(0)
+      expect(instance.length).toEqual(0)
       expect(item).toEqual(1)
     })
 
@@ -74,7 +74,7 @@ describe('Stack', () => {
       expect(one).toEqual(1)
       expect(two).toEqual(2)
       expect(three).toEqual(3)
-      expect(instance.length()).toEqual(0)
+      expect(instance.length).toEqual(0)
     })
   })
 
@@ -84,7 +84,27 @@ describe('Stack', () => {
       const last = instance.peek()
 
       expect(last).toEqual(3)
-      expect(instance.length()).toEqual(3)
+      expect(instance.length).toEqual(3)
+    })
+
+    test('empty stack returns null', () => {
+      const instance = getInstance()
+
+      expect(instance.peek()).toEqual(null)
+    })
+  })
+
+  describe('static methods', () => {
+    describe('.From', () => {
+      test('has a static From method', () => {
+        expect(Stack.From).toBeDefined()
+      })
+
+      test('creates a stack from the provided values', () => {
+        const instance = Stack.From([1, 2, 3])
+
+        expect(instance.length).toEqual(3)
+      })
     })
   })
 })
