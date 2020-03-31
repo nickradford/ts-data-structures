@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  coveralls: coveralls/coveralls@1.0.4
+
 jobs:
   install_deps:
     docker:
@@ -21,7 +24,7 @@ jobs:
       - run:
           name: test
           command: npm test
-      - run: npm run report-coverage
+      - coveralls/upload
   release:
     docker:
       - image: circleci/node:latest
